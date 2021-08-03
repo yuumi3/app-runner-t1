@@ -6,6 +6,10 @@ app.use(cors())
 
 app.use(express.json())
 
+app.get('/', (req: express.Request, res: express.Response) => {
+  res.send("OK")
+})
+
 app.get('/hello', (req: express.Request, res: express.Response) => {
   res.send("Hello World !!")
 })
