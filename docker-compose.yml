@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  express:
+    build:
+      context: .
+      dockerfile: ./docker/express/Dockerfile
+    image: express
+    container_name: express
+    environment:
+      - DB_HOST=host.docker.internal
+      - DB_DATABASE=appdb
+      - DB_USER=appdb
+      - DB_PASSWORD=appdb
+      - HISTSIZE=10000
+      - HISTFILE=/usr/src/app/.bash_history
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/usr/src"
+    command: bash -c "npm run dev"
+
+  nginx:
+    build:
+      context: ./docker/nginx
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:80"
