@@ -3,8 +3,8 @@ version: "3"
 services:
   express:
     environment:
-      - DB_HOST=database3.cjap34jr1zr0.ap-northeast-1.rds.amazonaws.com
+      - DB_HOST=database1.cjap34jr1zr0.ap-northeast-1.rds.amazonaws.com
       - DB_DATABASE=appdb
       - DB_USER=appdb
       - DB_PASSWORD=appdb
-    command: bash -c "npm run build && npm start"
+    command: bash -c "npm run service"

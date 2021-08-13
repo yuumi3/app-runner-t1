@@ -14,6 +14,7 @@ ENV TZ Asia/Tokyo
 
 COPY package.json /usr/src
 COPY package-lock.json /usr/src
+COPY tsconfig.json /usr/src
 RUN npm install
 
 EXPOSE 3000
