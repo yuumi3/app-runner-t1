@@ -20,6 +20,19 @@ services:
       - "./src:/usr/src/src"
     command: bash -c "npm run dev"
 
+  admin:
+    image: dpage/pgadmin4
+    user: 5050:5050
+    container_name: admin
+    ports:
+      - 4000:80
+    volumes:
+        - pgadmin:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@mail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    restart: always
+
   nginx:
     build:
       context: ./docker/nginx
@@ -27,3 +40,6 @@ services:
     container_name: nginx
     ports:
       - "80:80"
+
+volumes:
+  pgadmin:
