@@ -39,4 +39,5 @@ dist/**/*
 
 # App
 env.sh
-pgadmin/
+pgadmin/*
+!pgadmin/.keep
