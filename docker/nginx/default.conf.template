@@ -1,0 +1,18 @@
+server {
+    listen 80;
+    server_name  _;
+
+    location /app {
+        proxy_pass http://${WEB_HOST}:3000/;
+        rewrite /app(.*) $1 break;
+    }
+
+    location /admin/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Script-Name /admin;
+
+        proxy_pass http://${WEB_HOST}:4000/;
+        proxy_redirect off;
+    }
+
+}

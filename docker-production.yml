@@ -8,3 +8,7 @@ services:
       - DB_USER=appdb
       - DB_PASSWORD=appdb
     command: bash -c "npm run service"
+
+  nginx:
+    environment:
+      - WEB_HOST=35.75.248.16
